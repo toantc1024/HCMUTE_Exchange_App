@@ -13,16 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Exchange_App.View
+namespace Exchange_App.CustomUserControls
 {
     /// <summary>
-    /// Interaction logic for CartView.xaml
+    /// Interaction logic for AddProduct.xaml
     /// </summary>
-    public partial class CartView : UserControl
+    public partial class AddProduct : UserControl
     {
-        public CartView()
+        public AddProduct()
         {
             InitializeComponent();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

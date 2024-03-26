@@ -1,0 +1,128 @@
+﻿<UserControl
+    x:Class="Exchange_App.CustomUserControls.AddProduct"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Exchange_App.CustomUserControls"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid Background="DarkOrange">
+            <StackPanel
+                Grid.Row="0"
+                Margin="10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <materialDesign:PackIcon
+                    Width="20"
+                    Height="20"
+                    Margin="0,0,10,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Foreground="White"
+                    Kind="Add" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Text="Add new product" />
+                <TextBlock />
+            </StackPanel>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1">
+            <StackPanel
+                MinWidth="600"
+                Margin="0,40,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top">
+
+                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+
+                    <Label VerticalAlignment="Center" FontWeight="Bold">Product name:</Label>
+                    <TextBox x:Name="tbProductName" materialDesign:HintAssist.Hint="Enter your product name">
+                        <TextBox.Text>
+                            <Binding Path="Name" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules />
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+
+                </StackPanel>
+
+                <Separator Height="10" Visibility="Hidden" />
+
+                <Border
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    CornerRadius="5">
+                    <StackPanel>
+                        <Label FontWeight="Bold">
+                            Product status
+                        </Label>
+                        <TextBox
+                            Height="100"
+                            VerticalAlignment="Top"
+                            materialDesign:HintAssist.Hint="What is your product status now?"
+                            AcceptsReturn="True"
+                            IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            TextChanged="TextBox_TextChanged"
+                            TextWrapping="Wrap"
+                            VerticalScrollBarVisibility="Auto" />
+                    </StackPanel>
+
+                </Border>
+
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Grid.Row="2">
+            <StackPanel
+                Margin="5"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <Button
+                    Background="Green"
+                    BorderBrush="Green"
+                    Foreground="White">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center">
+                            Preview
+                        </TextBlock>
+                        <Separator Width="5" />
+                        <materialDesign:PackIcon VerticalAlignment="Center" Kind="Eye" />
+                    </StackPanel>
+                </Button>
+                <Separator Width="5" Visibility="Hidden" />
+                <Button
+                    Background="Orange"
+                    BorderBrush="Orange"
+                    Foreground="White">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center">
+                            Add
+                        </TextBlock>
+                        <Separator Width="5" />
+                        <materialDesign:PackIcon VerticalAlignment="Center" Kind="Add" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+</UserControl>

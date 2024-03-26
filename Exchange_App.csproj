@@ -81,8 +81,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CustomUserControls\AddProduct.xaml.cs">
+      <DependentUpon>AddProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomUserControls\CartDetails.xaml.cs">
+      <DependentUpon>CartDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomUserControls\CheckoutDetails.xaml.cs">
+      <DependentUpon>CheckoutDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomUserControls\MyProducts.xaml.cs">
+      <DependentUpon>MyProducts.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomUserControls\PreviewImageUC.xaml.cs">
       <DependentUpon>PreviewImageUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomUserControls\UserInformation.xaml.cs">
+      <DependentUpon>UserInformation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\BeeExchange.Context.cs">
       <AutoGen>True</AutoGen>
@@ -105,6 +120,7 @@
     <Compile Include="Model\Category.cs">
       <DependentUpon>BeeExchange.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\CustomModel\User_Orders.cs" />
     <Compile Include="Model\Image.cs">
       <DependentUpon>BeeExchange.tt</DependentUpon>
     </Compile>
@@ -126,13 +142,12 @@
     <Compile Include="Tools\ImageConverter.cs" />
     <Compile Include="Tools\PasswordEncryption.cs" />
     <Compile Include="ViewModel\CartViewModel.cs" />
+    <Compile Include="ViewModel\CheckoutViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\ProductDetailsViewModel.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
     <Compile Include="View\AddProductView.xaml.cs">
       <DependentUpon>AddProductView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\CartView.xaml.cs">
-      <DependentUpon>CartView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CheckoutView.xaml.cs">
       <DependentUpon>CheckoutView.xaml</DependentUpon>
@@ -161,11 +176,31 @@
     <Compile Include="View\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
     </Compile>
+    <Page Include="CustomUserControls\AddProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomUserControls\CartDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomUserControls\CheckoutDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CustomUserControls\ControlBarUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CustomUserControls\MyProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CustomUserControls\PreviewImageUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomUserControls\UserInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -202,10 +237,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddProductView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\CartView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -268,6 +299,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BeeExchange.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Fonts\Poppins-Regular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Model\BeeExchange.edmx.diagram">
       <DependentUpon>BeeExchange.edmx</DependentUpon>
     </None>

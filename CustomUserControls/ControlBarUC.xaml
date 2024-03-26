@@ -16,7 +16,7 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
-        <materialDesign:ColorZone Mode="PrimaryLight">
+        <materialDesign:ColorZone Background="Orange">
             <DockPanel>
                 <StackPanel DockPanel.Dock="Right"
                             Background="Transparent"
@@ -32,29 +32,31 @@
                     <Button Command="{Binding MinimizeWindowCommand}"
                             CommandParameter="{Binding ElementName=ucControlBar}"
                             ToolTip="Đóng"
+                            Foreground="White"
                             ToolBar.OverflowMode="AsNeeded"
-                            Background="ForestGreen">
+                            Background="Orange">
                         <materialDesign:PackIcon Kind="WindowMinimize" />
                     </Button>
                     <Button Command="{Binding MaximizeWindowCommand}"
                             CommandParameter="{Binding ElementName=ucControlBar}"
                             ToolTip="Đóng"
                             ToolBar.OverflowMode="AsNeeded"
-                            Background="ForestGreen">
+                            Background="DarkOrange"
+                            Foreground="White">
                         <materialDesign:PackIcon Kind="WindowMaximize" />
                     </Button>
                     <Button Command="{Binding CloseWindowCommand}"
                             CommandParameter="{Binding ElementName=ucControlBar}"
                             ToolTip="Đóng"
                             ToolBar.OverflowMode="AsNeeded"
-                            Background="OrangeRed">
+                            Background="OrangeRed" Foreground="White">
                         <materialDesign:PackIcon Kind="WindowClose" />
                     </Button>
                 </StackPanel>
 
                 <StackPanel DockPanel.Dock="Left"
                             Orientation="Horizontal">
-                    <ToggleButton Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
+                    <!--<ToggleButton Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />-->
                     <TextBlock VerticalAlignment="Center"
                                Margin="16 0 0 0"
                                Text="{Binding Tag, ElementName=ucControlBar}"></TextBlock>

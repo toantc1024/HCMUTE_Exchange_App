@@ -25,11 +25,13 @@ namespace Exchange_App.ViewModel
 
         public HomeViewModel HomeVM { get; set; }
         public CartViewModel CartVM { get; set; }
+
+        public CheckoutViewModel CheckoutVM { get; set; }
         public int count = 0;
 
 
-        public User CurrentUser { get; set; }
-        public ICommand UpdateViewCommand { get; set; }
+            public User CurrentUser { get; set; }
+            public ICommand UpdateViewCommand { get; set; }
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand SetCount { get; set; }
         public MainViewModel(User user)
@@ -86,7 +88,11 @@ namespace Exchange_App.ViewModel
                     }
                     else if((string)o == "Cart")
                     {
-                        SelectedViewModel = new CartViewModel(CurrentUser);
+                        SelectedViewModel = new CheckoutViewModel(CurrentUser);
+                    }
+                    else if((string)o == "User")
+                    {
+                        SelectedViewModel = new UserViewModel(CurrentUser);
                     }
                 }
             

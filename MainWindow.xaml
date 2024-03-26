@@ -1,40 +1,41 @@
-﻿<Window x:Class="Exchange_App.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Exchange_App"
-        mc:Ignorable="d"
+﻿<Window
+    x:Class="Exchange_App.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:Exchange_App"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-            xmlns:uc="clr-namespace:Exchange_App.CustomUserControls"
-        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        TextElement.FontWeight="Regular"
-        TextElement.FontSize="13"
-        TextOptions.TextFormattingMode="Ideal"
-        TextOptions.TextRenderingMode="Auto"
-        Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}"
-        ResizeMode="NoResize"
-        WindowStyle="None"
-        WindowStartupLocation="CenterScreen"
-        Name="mainWindow"
-        Title="Bee Exchange"
-        Height="768"
-        Width="1366">
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="clr-namespace:Exchange_App.CustomUserControls"
+    Name="mainWindow"
+    Title="Bee Exchange"
+    Width="1366"
+    Height="768"
+    Background="{DynamicResource MaterialDesignPaper}"
+    FontFamily="{StaticResource PoppinsRegular}"
+    ResizeMode="NoResize"
+    TextElement.FontSize="13"
+    TextElement.FontWeight="Regular"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    TextOptions.TextFormattingMode="Ideal"
+    TextOptions.TextRenderingMode="Auto"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}"/>
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <uc:ControlBarUC Tag="{Binding Title, ElementName=mainWindow}"></uc:ControlBarUC>
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=mainWindow}" />
         </Grid>
 
         <Grid Grid.Row="1">
@@ -43,30 +44,70 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            
-            <StackPanel Background="Red">
-                <Button Command="{Binding UpdateViewCommand}"
-                        CommandParameter="Home">
+
+            <StackPanel Background="DarkOrange">
+                <Button
+                    Height="50"
+                    Margin="2"
+                    Background="Orange"
+                    Command="{Binding UpdateViewCommand}"
+                    CommandParameter="Home"
+                    Foreground="White">
                     <materialDesign:PackIcon Kind="Home" />
                 </Button>
 
-                <Button  Command="{Binding UpdateViewCommand}"
-                         CommandParameter="Cart">
+                <Button
+                    Height="50"
+                    Margin="2"
+                    Background="Orange"
+                    Command="{Binding UpdateViewCommand}"
+                    CommandParameter="Cart"
+                    Foreground="White">
                     <materialDesign:PackIcon Kind="Cart" />
                 </Button>
-                <Button>
+
+                <Button
+                    Height="50"
+                    Margin="2"
+                    Background="Orange"
+                    Command="{Binding UpdateViewCommand}"
+                    CommandParameter="ProductManager"
+                    Foreground="White">
+                    <materialDesign:PackIcon Kind="AppBadge" />
+                </Button>
+
+                <Button
+                    Height="50"
+                    Margin="2"
+                    Background="Orange"
+                    Command="{Binding UpdateViewCommand}"
+                    CommandParameter="ProductManager"
+                    Foreground="White">
+                    <materialDesign:PackIcon Kind="Truck" />
+                </Button>
+                <Button
+                    Height="50"
+                    Margin="2"
+                    Background="Orange"
+                    Command="{Binding UpdateViewCommand}"
+                    CommandParameter="User"
+                    Foreground="White">
                     <materialDesign:PackIcon Kind="User" />
                 </Button>
             </StackPanel>
 
             <StackPanel VerticalAlignment="Bottom">
-                <Button>
+                <Button
+                    Height="50"
+                    Margin="2"
+                    Background="Orange"
+                    Foreground="White">
                     <materialDesign:PackIcon Kind="Logout" />
                 </Button>
 
             </StackPanel>
 
-            <ContentControl Grid.Column="1" Content="{Binding SelectedViewModel}"/>
+            <ContentControl Grid.Column="1" Content="{Binding SelectedViewModel}" />
         </Grid>
 
     </Grid>

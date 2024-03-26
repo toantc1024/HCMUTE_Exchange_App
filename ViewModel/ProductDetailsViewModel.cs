@@ -33,6 +33,20 @@ namespace Exchange_App.ViewModel
         public string Info_des => _product.Info_des;
 
         public string Status_Des => _product.Status_des;
+
+        public string UploadedDate
+        {
+
+            get
+            {
+                return _product.UploadedDate.ToString();
+            }
+
+            set
+            {
+                ;
+            }
+        }
         //
 
 
@@ -45,8 +59,24 @@ namespace Exchange_App.ViewModel
                 return _addProductToCartCommand ?? (new RelayCommand<int>((p) => { return true; }, (p) => {
                     // Check if the product is already in the cart
                     int productID = p;
+
+                    // if current product is the user own product
+                    if (_product.UserID == _currentUser.UserID)
+                    {
+                        MessageBox.Show("You can't add your own product to the cart!");
+                        return;
+                    }   
+
                     if (_currentUser.CartItems.Any(x => x.ProductID == productID))
                     {
+                        // check if current product in the cart quanity is not greater than the quantity in the database of the product
+
+                        if (_currentUser.CartItems.First(x => x.ProductID == productID).Quantity >= _product.Quantity)
+                        {
+                            MessageBox.Show("You reach the limit for this product quantity!");
+                            return;
+                        }
+
                         // increase quanitty
                         _currentUser.CartItems.First(x => x.ProductID == productID).Quantity++;
                     } else
